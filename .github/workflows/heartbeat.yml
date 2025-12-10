@@ -1,15 +1,17 @@
 name: Supabase Heartbeat
 
+# Exécution automatique toutes les 5 minutes
 on:
   schedule:
-    - cron: '*/5 * * * *' # toutes les 5 minutes
-  workflow_dispatch: # permet de lancer manuellement si besoin
+    - cron: '*/5 * * * *'
+  workflow_dispatch: # permet de lancer manuellement
 
 jobs:
   call-supabase:
     runs-on: ubuntu-latest
+
     steps:
       - name: Call Supabase Function
         run: |
           curl -X GET "https://mkjsgiwhmhvmkqmzbhqt.functions.supabase.co/send_heartbeat" \
-          -H "Authorization: Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ranNnaXdobWh2bWtxbXpiaHF0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NTM1NDIyNiwiZXhwIjoyMDgwOTMwMjI2fQ.KxWXXG4B4HNRxeZb9Kjn6cRQ3hVY7O6KqhBAwV0hjgg>"
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}"
