@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Call Supabase Function
         run: |
-          curl -L -X POST "https://mkjsgiwhmhvmkqmzbhqt.supabase.co/functions/v1/send_heartbeat" \
-          -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
-          -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-          -H "Content-Type: application/json" \
-          --data '{"name":"Functions"}'
+          curl -L -X POST 'https://mkjsgiwhmhvmkqmzbhqt.supabase.co/functions/v1/send_heartbeat' \
+            -H 'Authorization: Bearer sb_publishable_TIHkvV7Ntlotd0pbcJImpg_FuOPLbFe' \
+            -H 'apikey: sb_publishable_TIHkvV7Ntlotd0pbcJImpg_FuOPLbFe' \
+            -H 'Content-Type: application/json' \
+            --data '{"name":"Functions"}'
